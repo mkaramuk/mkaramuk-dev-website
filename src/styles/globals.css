@@ -2,18 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-.main-photo-anim {
-	animation-name: main-photo;
-	animation-duration: 2s;
+html {
+	scroll-snap-type: y proximity;
 }
 
-@keyframes main-photo {
+.typewriter {
+	opacity: 0;
+	overflow: hidden;
+	border-right: 0.15em solid white;
+	white-space: nowrap;
+	margin: 0 auto;
+	padding-right: 3px;
+	letter-spacing: 0.15em; /* Adjust as needed */
+	animation: typing 3.5s steps(40, end) forwards,
+		blink-caret 0.75s step-end infinite;
+	animation-delay: 1s;
+}
+
+@keyframes typing {
 	from {
-		opacity: 0;
-		transform: translateY(-100px);
+		opacity: 1;
+		width: 0px;
 	}
 	to {
+		width: 100%;
 		opacity: 1;
-		transform: translateY(0px);
+	}
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: white;
 	}
 }
