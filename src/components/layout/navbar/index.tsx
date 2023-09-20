@@ -1,4 +1,4 @@
-import { NavbarLink } from "@/layout/navbar/NavbarLink";
+import { NavbarLink } from "@/components/layout/navbar/NavbarLink";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 

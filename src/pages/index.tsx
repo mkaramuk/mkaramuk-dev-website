@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import { Icon } from "@iconify/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Head from "next/head";
-import Navbar from "@/layout/navbar";
+import Navbar from "@/components/layout/navbar";
 import "swiper/css";
+import { useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 function Tool(props: { icon: string }) {
 	return (
@@ -26,9 +28,37 @@ function Tool(props: { icon: string }) {
 	);
 }
 
+interface WorkProps {
+	name: string;
+	summary: string;
+	about: string;
+	href: string;
+}
+
+function Work(props: WorkProps) {
+	return (
+		<div className="bg-white shadow-xl rounded-lg p-3 flex flex-col">
+			<h3 className="font-bold font-mono text-[20px]">{props.name}</h3>
+			<div className="text-gray-500 mb-3">{props.summary}</div>
+			<div className="mb-4">{props.about}</div>
+			<div className="flex-1" />
+			<a href={props.href} target="_blank">
+				<button
+					className={twMerge(
+						"transition-all duration-500 self-start p-2 bg-cyan-600 text-white rounded-lg shadow-xl",
+						"hover:cursor-pointer hover:bg-cyan-700"
+					)}
+				>
+					Learn more
+				</button>
+			</a>
+		</div>
+	);
+}
+
 export default function Home() {
 	return (
-		<main className="w-screen h-screen bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(46,46,46,1)_100%)]">
+		<main className="w-screen flex flex-col">
 			<Head>
 				<meta
 					name="viewport"
@@ -36,15 +66,12 @@ export default function Home() {
 				/>
 				<meta
 					name="description"
-					content="Welcome to home page of Muhammed Karamuk, a DevOps & Full Stack Developer! Take a look to his articles about software development or explore open-source projects!"
+					content="Welcome to personel website of Muhammed Karamuk, a Full Stack Developer! Take a look to his articles about software development or explore open-source projects!"
 				/>
-				<title>
-					Muhammed Karamuk - DevOps & Full Stack Developer - Personal
-					Website
-				</title>
+				<title>Muhammed Karamuk - Jr. Full Stack Developer</title>
 			</Head>
 			<Navbar />
-			<section className="w-full h-full flex flex-col  items-center justify-center">
+			<section className="w-full h-screen bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(46,46,46,1)_100%)] flex flex-col  items-center justify-center">
 				<div className="w-full flex justify-center">
 					<motion.img
 						initial={{
@@ -79,14 +106,14 @@ export default function Home() {
 					}}
 					className="w-full flex flex-col items-center justify-center"
 				>
-					<div
+					<h1
 						className={twMerge(
 							"text-white text-[18px] font-bold font-mono",
 							"sm:text-[30px]"
 						)}
 					>
-						Hi, I'm Muhammed Karamuk
-					</div>
+						Hi, I'm Muhammed
+					</h1>
 				</motion.div>
 				<div className="w-full flex justify-center">
 					<div
@@ -96,14 +123,26 @@ export default function Home() {
 							"sm:text-[15px]"
 						)}
 					>
-						<div className="typewriter">
-							A passionate devops and full stack developer
-						</div>
+						<h2 className="typewriter">
+							A passionate jr. full stack developer
+						</h2>
 					</div>
 				</div>
 				<div className="h-[30px]" />
 				<div className="w-full flex items-center justify-center">
-					<div className="justify-center flex flex-wrap w-full">
+					<motion.div
+						transition={{
+							delay: 2,
+							duration: 4,
+						}}
+						initial={{
+							opacity: 0,
+						}}
+						animate={{
+							opacity: 1,
+						}}
+						className="justify-center flex flex-wrap w-full"
+					>
 						<div
 							className={twMerge(
 								"text-center text-white font-mono text-[13px]",
@@ -154,46 +193,121 @@ export default function Home() {
 								</SwiperSlide>
 							))}
 						</Swiper>
+					</motion.div>
+				</div>
+			</section>
+			<section
+				className={twMerge(
+					"w-full bg-[linear-gradient(180deg,rgba(46,46,46,1)_0%,rgba(0,0,0,1)_50%,rgba(46,46,46,1)_100%)] flex flex-col items-center px-[30px] py-[100px]",
+					"md:px-[100px]"
+				)}
+			>
+				<div
+					className={twMerge(
+						"flex w-full items-center flex-col-reverse",
+						"md:flex-row md:justify-between",
+						"lg:justify-center"
+					)}
+				>
+					<div
+						className={twMerge(
+							"flex flex-col gap-[50px] text-white font-mono w-full text-[14px]",
+							"md:w-[300px] md:text-[14px]",
+							"lg:w-[500px] lg:text-[18px]",
+							"xl:w-[700px] xl:text-[23px]"
+						)}
+					>
+						<div className={twMerge("text-[40px] font-bold")}>
+							Who am I?
+						</div>
+						<div>
+							I am an enthusiastic full stack developer deeply
+							committed to the open-source community and emerging
+							technologies. My journey in coding began in 2014 as
+							a hobby, evolving into a passion that led me to
+							explore software development. Since 2022, I have
+							dedicated myself to honing my skills and pursuing a
+							career path as a professional software developer.
+						</div>
+					</div>
+					<div
+						className={twMerge(
+							"h-[50px] w-[10px]",
+							"lg:w-[100px]",
+							"xl:w-[300px]"
+						)}
+					/>
+
+					<div
+						className={twMerge(
+							"shadow-xl w-[200px] h-[200px] rounded-2xl border-2 border-white overflow-hidden flex items-center justify-center",
+							"md:w-[250px] md:h-[250px]",
+							"lg:w-[300px] lg:h-[300px]",
+							"xl:w-[400px] xl:h-[400px]"
+						)}
+					>
+						<img src="/mkaramuk.jpg" />
 					</div>
 				</div>
 			</section>
-			{/* <section className="w-full h-fit bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(46,46,46,1)_100%)] flex flex-col items-center">
-				<div
+			<section
+				className={twMerge(
+					"w-full bg-[linear-gradient(180deg,rgba(46,46,46,1)_0%,rgba(0,0,0,1)_50%,rgba(46,46,46,1)_100%)] flex flex-col items-center px-[30px] py-[100px]",
+					"md:px-[100px]"
+				)}
+			>
+				<h2
 					className={twMerge(
-						"flex w-full justify-between items-center"
+						"w-full text-right text-white text-[40px] font-bold mb-10"
 					)}
 				>
-					<motion.div
-						ref={aboutRef}
-						transition={{
-							delay: 0.3,
-							duration: 2,
-						}}
-						initial={{
-							opacity: 0,
-						}}
-						animate={aboutAnimation}
-						className={twMerge(
-							"text-white text-[15px] font-mono",
-							"sm:w-full sm:text-[22px]",
-							"md:w-[500px]",
-							"lg:w-[700px]"
-						)}
-					>
-						I am an enthusiastic full stack developer deeply
-						committed to the open-source community and emerging
-						technologies. My journey in coding began in 2014 as a
-						hobby, evolving into a passion that led me to explore
-						software development and DevOps practices. Since 2022, I
-						have dedicated myself to honing my skills and pursuing a
-						career path as a professional software developer.
-					</motion.div>
-					<motion.img
-						className={twMerge("w-6/12", "sm:w-3/12", "md:w-6/12")}
-						src="/devops.png"
+					Works
+				</h2>
+				<div
+					className={twMerge(
+						"grid gap-4 grid-rows-3 grid-cols-1",
+						"md:grid-rows-3 md:grid-cols-2",
+						"lg:grid-cols-3"
+					)}
+				>
+					<Work
+						href="https://github.com/mkaramuk/cuzi"
+						name="Cuzi"
+						summary="Reverse proxy implementation in Rust"
+						about="Cuzi is an educational Rust-based reverse proxy application, akin to nginx. Ideal for learning Rust and modern web server technologies."
+					/>
+					<Work
+						href="https://github.com/tracikkaynakplatform/kos"
+						name="KOS"
+						summary="Multiple Kubernetes cluster management application"
+						about="KOS project is a set of client/server utilities aimed at easing (multiple) Kubernetes cluster generation and management. It utilizes the ClusterAPI project for this purpose and supports all of its provider backends  (Docker and AWS for now). It provides a UI via Electron.js and React.js"
+					/>
+					<Work
+						href="https://github.com/mkaramuk/surukoto"
+						name="Surukoto"
+						summary="JIRA alternative project tracking application"
+						about="Surukoto is an open-source project management application built
+						on top of the Nest.js backend framework and PostgreSQL as
+						database. It utilizes React.js and TailwindCSS for the frontend
+						stack. The application provides features similar to Jira and Trello,
+						allowing users to manage tasks and projects."
+					/>
+					<Work
+						href="https://github.com/mkaramuk/konstruct"
+						name="Konstruct"
+						summary="Kubernetes cluster provisioner on GCP"
+						about="Konstruct is a collection of Ansible, Terraform, and Bash Scripts
+						designed to provision a Kubernetes cluster on Google Cloud
+						Platform using Compute Engine."
 					/>
 				</div>
-			</section> */}
+			</section>
+			{/* <a
+				href="https://www.flaticon.com/free-icons/terminal"
+				title="terminal icons"
+			>
+				Terminal icons created by Royyan Wijaya - Flaticon
+			</a> */}
 		</main>
 	);
 }

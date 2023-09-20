@@ -26,8 +26,9 @@ export function NavbarLink(props: NavbarLinkProps) {
 				y: 0,
 			}}
 			className={twMerge(
-				"text-white font-bold rounded-full transition-all duration-300 p-4",
-				"hover:cursor-pointer hover:bg-gray-100 hover:text-black"
+				"text-white text-[13px] font-bold rounded-full transition-all duration-300 p-4",
+				"hover:cursor-pointer hover:bg-gray-100 hover:text-black",
+				"md:text-[18px]"
 			)}
 		>
 			{props.children}
@@ -36,8 +37,9 @@ export function NavbarLink(props: NavbarLinkProps) {
 		<a
 			href={props.href}
 			className={twMerge(
-				"text-white font-bold rounded-full transition-all duration-300 p-4",
-				"hover:cursor-pointer hover:bg-gray-100 hover:text-black"
+				"text-white text-[13px] font-bold rounded-full transition-all duration-300 p-4",
+				"hover:cursor-pointer hover:bg-gray-100 hover:text-black",
+				"md:text-[18px]"
 			)}
 		>
 			{props.children}
