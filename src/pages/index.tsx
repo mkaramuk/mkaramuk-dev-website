@@ -69,17 +69,6 @@ export default function Home() {
 					content="Welcome to personel website of Muhammed Karamuk, a Full Stack Developer! Take a look to his articles about software development or explore open-source projects!"
 				/>
 				<title>Muhammed Karamuk - Jr. Full Stack Developer</title>
-				<script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=G-2EY8024F4B"
-				></script>
-				<script>
-					{`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2EY8024F4B');`}
-				</script>
 			</Head>
 			<Navbar />
 			<section className="w-full h-screen bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(46,46,46,1)_100%)] flex flex-col  items-center justify-center">
