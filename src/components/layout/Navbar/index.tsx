@@ -1,4 +1,5 @@
-import { NavbarLink } from "@/components/layout/navbar/NavbarLink";
+import { navbarLinks } from "@/constants/navbar";
+import { NavbarLink } from "./NavbarLink";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -35,18 +36,11 @@ export default function Navbar(props: NavbarProps) {
 					"sm:justify-center sm:gap-[100px] sm:w-fit sm:mt-4"
 				)}
 			>
-				<NavbarLink delay={0.3} href="/">
-					Home
-				</NavbarLink>
-				<NavbarLink delay={0.6} href="/projects">
-					Projects
-				</NavbarLink>
-				<NavbarLink delay={0.9} href="/about">
-					About
-				</NavbarLink>
-				<NavbarLink delay={1.2} href="/blog">
-					Blog
-				</NavbarLink>
+				{navbarLinks.map((x, i) => (
+					<NavbarLink key={i} delay={0.3 * (i + 1)} href={x.href}>
+						{x.label}
+					</NavbarLink>
+				))}
 			</div>
 		</nav>
 	);

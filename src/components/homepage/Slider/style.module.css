@@ -1,0 +1,18 @@
+@keyframes slide {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+.logos-slide {
+	display: inline-block;
+	animation: 30s slide infinite linear;
+}
+
+.logos {
+	white-space: nowrap;
+	overflow: hidden;
+}

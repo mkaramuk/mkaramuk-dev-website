@@ -1,34 +1,10 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
-import { Icon } from "@iconify/react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import Head from "next/head";
-import Navbar from "@/components/layout/navbar";
-import "swiper/css";
-import { useEffect, useRef } from "react";
-import { useInView } from "react-intersection-observer";
+import { Slider } from "@/components/homepage/Slider";
+import { Page } from "@/types/Page";
+import { projects } from "@/constants/projects";
 
-function Tool(props: { icon: string }) {
-	return (
-		<div
-			className={twMerge(
-				"w-[calc(100%-20px)] h-[100px] rounded-full flex items-center justify-center bg-white"
-			)}
-		>
-			<Icon
-				className={twMerge(
-					"text-[80px]",
-					"sm:text-[60px]",
-					"md:text-[7 0px]"
-				)}
-				icon={props.icon}
-			/>
-		</div>
-	);
-}
-
-interface WorkProps {
+export interface WorkProps {
 	name: string;
 	summary: string;
 	about: string;
@@ -49,28 +25,16 @@ function Work(props: WorkProps) {
 						"hover:cursor-pointer hover:bg-cyan-700"
 					)}
 				>
-					Learn more
+					Daha fazla..
 				</button>
 			</a>
 		</div>
 	);
 }
 
-export default function Home() {
+const Home: Page = () => {
 	return (
 		<main className="w-screen flex flex-col">
-			<Head>
-				<meta
-					name="viewport"
-					content="initial-scale=1.0, width=device-width"
-				/>
-				<meta
-					name="description"
-					content="Welcome to personel website of Muhammed Karamuk, a Full Stack Developer! Take a look to his articles about software development or explore open-source projects!"
-				/>
-				<title>Muhammed Karamuk - Jr. Full Stack Developer</title>
-			</Head>
-			<Navbar />
 			<section className="w-full h-screen bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(46,46,46,1)_100%)] flex flex-col  items-center justify-center">
 				<div className="w-full flex justify-center">
 					<motion.img
@@ -112,7 +76,7 @@ export default function Home() {
 							"sm:text-[30px]"
 						)}
 					>
-						Hi, I'm Muhammed
+						Merhaba, ben Muhammed
 					</h1>
 				</motion.div>
 				<div className="w-full flex justify-center">
@@ -124,7 +88,7 @@ export default function Home() {
 						)}
 					>
 						<h2 className="typewriter">
-							A passionate jr. full stack developer
+							Tutkulu bir full stack developer
 						</h2>
 					</div>
 				</div>
@@ -143,37 +107,18 @@ export default function Home() {
 						}}
 						className="justify-center flex flex-wrap w-full"
 					>
-						<div
+						<h2
 							className={twMerge(
 								"text-center text-white font-mono text-[13px]",
 								"sm:text-[15px]",
 								"md:text-[18px]"
 							)}
 						>
-							The technologies that I have experienced
-						</div>
+							Tecrübe sahibi olduğum teknolojiler
+						</h2>
 						<div className="h-[50px]" />
-						<Swiper
-							modules={[Autoplay]}
-							slidesPerView={1}
-							breakpoints={{
-								"768": {
-									slidesPerView: 3,
-								},
-								"1200": {
-									slidesPerView: 7,
-								},
-							}}
-							autoplay={{
-								delay: 1000,
-								disableOnInteraction: false,
-								pauseOnMouseEnter: false,
-							}}
-							loopedSlides={5}
-							loopPreventsSliding
-							speed={500}
-						>
-							{[
+						<Slider
+							icons={[
 								"logos:docker-icon",
 								"logos:kubernetes",
 								"vscode-icons:file-type-cpp3",
@@ -184,15 +129,10 @@ export default function Home() {
 								"logos:ansible",
 								"logos:react",
 								"logos:typescript-icon",
+								"logos:nextjs",
 								"flat-color-icons:linux",
-							].map((x, i) => (
-								<SwiperSlide key={i}>
-									<div className="flex justify-center w-full">
-										<Tool icon={x} />
-									</div>
-								</SwiperSlide>
-							))}
-						</Swiper>
+							]}
+						></Slider>
 					</motion.div>
 				</div>
 			</section>
@@ -217,18 +157,21 @@ export default function Home() {
 							"xl:w-[700px] xl:text-[23px]"
 						)}
 					>
-						<div className={twMerge("text-[40px] font-bold")}>
-							Who am I?
-						</div>
-						<div>
-							I am an enthusiastic full stack developer deeply
-							committed to the open-source community and emerging
-							technologies. My journey in coding began in 2014 as
-							a hobby, evolving into a passion that led me to
-							explore software development. Since 2022, I have
-							dedicated myself to honing my skills and pursuing a
-							career path as a professional software developer.
-						</div>
+						<h2 className={twMerge("text-[40px] font-bold")}>
+							Ben Kimim?
+						</h2>
+						<p>
+							Açık kaynak topluluğuna bağlı, öğrenmeyi ve
+							öğretmeyi seven bir yazılım geliştiricisiyim.
+							Kodlama serüvenim, 2014 yılında sadece bir hobi
+							olarak başladı, ancak zaman içinde bu hobim bir
+							tutkuya dönüştü. Bu tutku, beni sürekli olarak yeni
+							şeyler öğrenmeye ve keşfetmeye yönlendirdi. 2022
+							yılı itibariyle, becerilerimi daha fazla
+							geliştirmeye ve profesyonel bir yazılım
+							geliştiricisi olarak kariyer edinme yolculuğuma
+							başladım.
+						</p>
 					</div>
 					<div
 						className={twMerge(
@@ -246,7 +189,7 @@ export default function Home() {
 							"xl:w-[400px] xl:h-[400px]"
 						)}
 					>
-						<img src="/mkaramuk.jpg" />
+						<img alt="Muhammed Karamuk" src="/mkaramuk.jpg" />
 					</div>
 				</div>
 			</section>
@@ -261,7 +204,7 @@ export default function Home() {
 						"w-full text-right text-white text-[40px] font-bold mb-10"
 					)}
 				>
-					Works
+					Çalışmalarım
 				</h2>
 				<div
 					className={twMerge(
@@ -270,44 +213,23 @@ export default function Home() {
 						"lg:grid-cols-3"
 					)}
 				>
-					<Work
-						href="https://github.com/mkaramuk/cuzi"
-						name="Cuzi"
-						summary="Reverse proxy implementation in Rust"
-						about="Cuzi is an educational Rust-based reverse proxy application, akin to nginx. Ideal for learning Rust and modern web server technologies."
-					/>
-					<Work
-						href="https://github.com/tracikkaynakplatform/kos"
-						name="KOS"
-						summary="Multiple Kubernetes cluster management application"
-						about="KOS project is a set of client/server utilities aimed at easing (multiple) Kubernetes cluster generation and management. It utilizes the ClusterAPI project for this purpose and supports all of its provider backends  (Docker and AWS for now). It provides a UI via Electron.js and React.js"
-					/>
-					<Work
-						href="https://github.com/mkaramuk/surukoto"
-						name="Surukoto"
-						summary="JIRA alternative project tracking application"
-						about="Surukoto is an open-source project management application built
-						on top of the Nest.js backend framework and PostgreSQL as
-						database. It utilizes React.js and TailwindCSS for the frontend
-						stack. The application provides features similar to Jira and Trello,
-						allowing users to manage tasks and projects."
-					/>
-					<Work
-						href="https://github.com/mkaramuk/konstruct"
-						name="Konstruct"
-						summary="Kubernetes cluster provisioner on GCP"
-						about="Konstruct is a collection of Ansible, Terraform, and Bash Scripts
-						designed to provision a Kubernetes cluster on Google Cloud
-						Platform using Compute Engine."
-					/>
+					{projects.map((x, i) => (
+						<Work
+							key={i}
+							name={x.name}
+							about={x.about}
+							href={x.href}
+							summary={x.summary}
+						/>
+					))}
 				</div>
 			</section>
-			{/* <a
-				href="https://www.flaticon.com/free-icons/terminal"
-				title="terminal icons"
-			>
-				Terminal icons created by Royyan Wijaya - Flaticon
-			</a> */}
 		</main>
 	);
-}
+};
+
+Home.title = "Muhammed Karamuk - Full Stack Developer";
+Home.description =
+	"Full Stack Developer Muhammed Karamuk'un kişisel web sayfasına hoş geldiniz! Muhammed Karamuk kimdir? Makalelerime göz atabilir veya projeler sayfasından açık kaynak çalışmalarımı inceleyebilirsiniz!";
+
+export default Home;
