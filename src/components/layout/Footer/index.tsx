@@ -1,12 +1,11 @@
+"use client";
 import { navbarLinks } from "@/constants/navbar";
 import { projects } from "@/constants/projects";
 import { twMerge } from "tailwind-merge";
 import { Icon } from "@iconify/react";
 import contact from "@/constants/contact";
 
-export interface FooterProps {}
-
-export function Footer(props: FooterProps) {
+export function Footer() {
 	return (
 		<footer className="w-full bg-[linear-gradient(180deg,rgba(46,46,46,1)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_100%)] flex flex-col justify-center">
 			<div

@@ -1,3 +1,4 @@
+"use client";
 import { Icon } from "@iconify/react";
 import styles from "./style.module.css";
 import { twMerge } from "tailwind-merge";

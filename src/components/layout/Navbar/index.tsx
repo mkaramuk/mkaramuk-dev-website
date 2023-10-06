@@ -1,3 +1,4 @@
+"use client";
 import { navbarLinks } from "@/constants/navbar";
 import { NavbarLink } from "./NavbarLink";
 import { useEffect, useState } from "react";

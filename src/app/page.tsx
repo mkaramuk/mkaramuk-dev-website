@@ -1,10 +1,11 @@
+"use client";
+
+import { Slider } from "@/components/homepage/Slider";
+import { projects } from "@/constants/projects";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
-import { Slider } from "@/components/homepage/Slider";
-import { Page } from "@/types/Page";
-import { projects } from "@/constants/projects";
 
-export interface WorkProps {
+interface WorkProps {
 	name: string;
 	summary: string;
 	about: string;
@@ -32,7 +33,7 @@ function Work(props: WorkProps) {
 	);
 }
 
-const Home: Page = () => {
+export default function Home() {
 	return (
 		<main className="w-screen flex flex-col">
 			<section className="w-full h-screen bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(46,46,46,1)_100%)] flex flex-col  items-center justify-center">
@@ -226,10 +227,4 @@ const Home: Page = () => {
 			</section>
 		</main>
 	);
-};
-
-Home.title = "Muhammed Karamuk - Full Stack Developer";
-Home.description =
-	"Full Stack Developer Muhammed Karamuk'un kişisel web sayfasına hoş geldiniz! Muhammed Karamuk kimdir? Makalelerime göz atabilir veya projeler sayfasından açık kaynak çalışmalarımı inceleyebilirsiniz!";
-
-export default Home;
+}
