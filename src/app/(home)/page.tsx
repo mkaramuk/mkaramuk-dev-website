@@ -1,8 +1,7 @@
-"use client";
-
-import { Slider } from "@/components/homepage/Slider";
+import { GreetingText } from "@/app/(home)/GreetingText";
+import { MainImage } from "@/app/(home)/MainImage";
+import { TechSlider } from "@/app/(home)/TechSlider";
 import { projects } from "@/constants/projects";
-import { motion } from "framer-motion";
 import { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
 
@@ -45,48 +44,9 @@ export default function Home() {
 		<main className="w-screen flex flex-col">
 			<section className="w-full h-screen bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(46,46,46,1)_100%)] flex flex-col  items-center justify-center">
 				<div className="w-full flex justify-center">
-					<motion.img
-						initial={{
-							opacity: 0,
-							y: -100,
-						}}
-						transition={{
-							duration: 2,
-						}}
-						animate={{
-							opacity: 1,
-							y: 0,
-						}}
-						className={twMerge(
-							"rounded-full shadow-lg border-white",
-							"w-[250px] border-2",
-							"lg:w-[300px] lg:border-4"
-						)}
-						src="/photo.jpeg"
-					/>
+					<MainImage />
 				</div>
-				<motion.div
-					transition={{
-						delay: 1,
-						duration: 4,
-					}}
-					initial={{
-						opacity: 0,
-					}}
-					animate={{
-						opacity: 1,
-					}}
-					className="w-full flex flex-col items-center justify-center"
-				>
-					<h1
-						className={twMerge(
-							"text-white text-[18px] font-bold font-mono",
-							"sm:text-[30px]"
-						)}
-					>
-						Merhaba, ben Muhammed
-					</h1>
-				</motion.div>
+				<GreetingText />
 				<div className="w-full flex justify-center">
 					<div
 						className={twMerge(
@@ -102,46 +62,7 @@ export default function Home() {
 				</div>
 				<div className="h-[30px]" />
 				<div className="w-full flex items-center justify-center">
-					<motion.div
-						transition={{
-							delay: 2,
-							duration: 4,
-						}}
-						initial={{
-							opacity: 0,
-						}}
-						animate={{
-							opacity: 1,
-						}}
-						className="justify-center flex flex-wrap w-full"
-					>
-						<h2
-							className={twMerge(
-								"text-center text-white font-mono text-[13px]",
-								"sm:text-[15px]",
-								"md:text-[18px]"
-							)}
-						>
-							Tecrübe sahibi olduğum teknolojiler
-						</h2>
-						<div className="h-[50px]" />
-						<Slider
-							icons={[
-								"logos:docker-icon",
-								"logos:kubernetes",
-								"vscode-icons:file-type-cpp3",
-								"logos:nodejs",
-								"logos:terraform-icon",
-								"logos:rust",
-								"logos:python",
-								"logos:ansible",
-								"logos:react",
-								"logos:typescript-icon",
-								"logos:nextjs",
-								"flat-color-icons:linux",
-							]}
-						></Slider>
-					</motion.div>
+					<TechSlider />
 				</div>
 			</section>
 			<section
