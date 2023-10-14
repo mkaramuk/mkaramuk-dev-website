@@ -3,7 +3,14 @@
 import { Slider } from "@/components/homepage/Slider";
 import { projects } from "@/constants/projects";
 import { motion } from "framer-motion";
+import { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
+
+export const metadata: Metadata = {
+	title: 'Muhammed Karamuk - "Kabuğun olduğu yerde bir yol vardır"',
+	description:
+		"Muhammed Karamuk'un kişisel web sayfasına hoş geldiniz! Ben kimim? Makalelerime göz atabilir veya projeler sayfasından açık kaynak çalışmalarımı inceleyebilirsiniz!",
+};
 
 interface WorkProps {
 	name: string;

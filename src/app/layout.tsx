@@ -6,9 +6,9 @@ import { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-	title: "Muhammed Karamuk - Full Stack Developer",
+	title: 'Muhammed Karamuk - "Kabuğun olduğu yerde gidilecek bir yol vardır"',
 	description:
-		"Full Stack Developer Muhammed Karamuk'un kişisel web sayfasına hoş geldiniz! Muhammed Karamuk kimdir? Makalelerime göz atabilir veya projeler sayfasından açık kaynak çalışmalarımı inceleyebilirsiniz!",
+		"Muhammed Karamuk'un kişisel web sayfasına hoş geldiniz! Ben kimim? Makalelerime göz atabilir veya projeler sayfasından açık kaynak çalışmalarımı inceleyebilirsiniz!",
 };
 
 interface RootLayoutProps {
