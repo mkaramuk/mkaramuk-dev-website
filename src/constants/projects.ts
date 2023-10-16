@@ -11,12 +11,12 @@ export const projects = [
 		about: "KOS project is a set of client/server utilities aimed at easing (multiple) Kubernetes cluster generation and management. It utilizes the ClusterAPI project for this purpose and supports all of its provider backends  (Docker and AWS for now). It provides a UI via Electron.js and React.js",
 		href: "https://github.com/tracikkaynakplatform/kos",
 	},
-	{
+	/* 	{
 		name: "Dango",
 		summary: "Cross-platform configuration as code tool",
 		about: "Dango is a cross-platform configuration as code tool. It provides to configure the whole system just with a config file.",
 		href: "https://github.com/dango-config",
-	},
+	}, */
 	{
 		name: "Rika",
 		summary: "JIRA alternative project tracking application",
