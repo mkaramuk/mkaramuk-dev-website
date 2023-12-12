@@ -1,0 +1,45 @@
+---
+title: "Kubernetes'te Service Account Kullanımı: Bir Giriş"
+image: "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+publishDate: "12.12.2023"
+category: "pratik"
+---
+
+Kubernetes, mikro servis mimarileri için popüler bir konteyner
+yönetim sistemidir. Bu platform, uygulamaların hızlı bir şekilde
+dağıtılmasını, ölçeklenmesini ve yönetilmesini sağlar.
+Kubernetes'in bu esnekliği sağlamasının bir yolu da "Service
+Account" kullanmaktır. Bu makalede, Kubernetes Service
+Account'larını nasıl kullanacağınızı anlatacağım.
+
+## Service Account Nedir?
+
+Service Account'lar, Kubernetes içinde çalışan pod'lara kimlik bilgilerini sağlayan bir özelliktir. Her pod, bir Service Account ile ilişkilendirilebilir ve bu hesap, pod'un diğer Kubernetes kaynaklarıyla etkileşimde bulunmasına olanak tanır.
+
+## Service Account Oluşturma
+
+Service Account oluşturmak için şu YAML dosyasını kullanabilirsiniz:
+
+```jsx
+export default function Page() {
+	return (
+		<Post
+			publishDate={new Date(Date.now())}
+			title="Kubernetes'te Service Account Kullanımı: Bir Giriş"
+		>
+			<Markdown
+				rehypePlugins={[rehypeHighlight]}
+				className="flex flex-col gap-5"
+			>
+				{markdown}
+			</Markdown>
+		</Post>
+	);
+}
+```
+
+Bu dosyayı sa.yaml olarak kaydedin ve ardından şu komutu kullanarak Service Account'ı oluşturun:
+
+```bash
+kubectl apply -f sa.yaml
+```

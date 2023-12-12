@@ -104,19 +104,21 @@ export function Footer() {
 				</div>
 			</div>
 			<div className="h-[30px]" />
-			<div className="w-full text-center text-white">
-				Bu web sayfası{" "}
-				<a className="underline" href="https://nextjs.org/">
-					Next.js
-				</a>{" "}
-				ve 💙 ile
-				<a href="https://archlinux.org/">
-					<img
-						className="inline-block h-[30px]"
-						src="arch-linux.png"
-					/>
-				</a>{" "}
-				üzerinde yapılmıştır ©️ 2023{" - "}
+			<div className="w-full text-center text-white flex flex-col items-center">
+				<div>
+					Bu web sayfası{" "}
+					<a className="underline" href="https://nextjs.org/">
+						Next.js
+					</a>{" "}
+					ve 💙 ile
+					<a href="https://archlinux.org/">
+						<img
+							className="inline-block h-[30px]"
+							src="/arch-linux.png"
+						/>
+					</a>{" "}
+					üzerinde yapılmıştır. El emeği göz nurudur ©️ 2023
+				</div>
 				<a
 					href="https://www.flaticon.com/free-icons/terminal"
 					title="terminal icons"

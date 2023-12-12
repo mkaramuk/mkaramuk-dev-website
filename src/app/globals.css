@@ -6,6 +6,39 @@ body {
 	overflow-x: hidden;
 }
 
+h1 {
+	@apply text-[40px] font-bold;
+}
+
+h2 {
+	@apply text-[30px] font-bold;
+}
+
+h3 {
+	@apply text-[25px] font-bold;
+}
+
+/* Add other languages if you need */
+.language-yaml,
+.language-js,
+.language-jsx,
+.language-bash {
+	@apply bg-gray-800 p-3 rounded-lg border-2 border-black shadow-lg block;
+}
+
+.hljs-attr {
+	@apply text-red-300;
+}
+.hljs-string {
+	@apply text-green-300;
+}
+.hljs-keyword {
+	@apply text-purple-300;
+}
+.hljs-name {
+	@apply text-yellow-200;
+}
+
 .typewriter {
 	opacity: 0;
 	overflow: hidden;
