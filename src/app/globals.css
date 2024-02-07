@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	overflow-x: hidden;
+}
+
+h1 {
+	@apply text-[40px] font-bold;
+}
+
+h2 {
+	@apply text-[30px] font-bold;
+}
+
+h3 {
+	@apply text-[25px] font-bold;
+}
+
+/* Add other languages if you need */
+.language-yaml,
+.language-js,
+.language-jsx,
+.language-bash {
+	@apply bg-gray-800 p-3 rounded-lg border-2 border-black shadow-lg block;
+}
+
+.hljs-attr {
+	@apply text-red-300;
+}
+.hljs-string {
+	@apply text-green-300;
+}
+.hljs-keyword {
+	@apply text-purple-300;
+}
+.hljs-name {
+	@apply text-yellow-200;
+}
+
+.typewriter {
+	opacity: 0;
+	overflow: hidden;
+	border-right: 0.15em solid white;
+	white-space: nowrap;
+	margin: 0 auto;
+	padding-right: 3px;
+	letter-spacing: 0.15em; /* Adjust as needed */
+	animation: typing 3.5s steps(40, end) forwards,
+		blink-caret 0.75s step-end infinite;
+	animation-delay: 1s;
+}
+
+@keyframes typing {
+	from {
+		opacity: 1;
+		width: 0px;
+	}
+	to {
+		width: 100%;
+		opacity: 1;
+	}
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: white;
+	}
+}
