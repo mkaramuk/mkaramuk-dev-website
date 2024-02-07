@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	overflow-x: hidden;
+}
+
+.typewriter {
+	opacity: 0;
+	overflow: hidden;
+	border-right: 0.15em solid white;
+	white-space: nowrap;
+	margin: 0 auto;
+	padding-right: 3px;
+	letter-spacing: 0.15em; /* Adjust as needed */
+	animation: typing 3.5s steps(40, end) forwards,
+		blink-caret 0.75s step-end infinite;
+	animation-delay: 1s;
+}
+
+@keyframes typing {
+	from {
+		opacity: 1;
+		width: 0px;
+	}
+	to {
+		width: 100%;
+		opacity: 1;
+	}
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: white;
+	}
+}

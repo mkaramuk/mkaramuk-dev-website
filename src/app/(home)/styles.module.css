@@ -1,0 +1,31 @@
+.greeting-text {
+	animation: 1 ease-in 4s forwards appears;
+}
+
+.main-image {
+	animation: 1 ease-in-out 2s forwards from-top-to-bottom;
+}
+
+.tech-slider {
+	animation: 1 ease-in 4s forwards appears;
+}
+
+@keyframes from-top-to-bottom {
+	from {
+		transform: translateY(-100px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes appears {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
