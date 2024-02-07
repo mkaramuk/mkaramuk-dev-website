@@ -5,11 +5,11 @@ export const navbarLinks = [
 	},
 	{
 		label: "Hakkımda",
-		href: "#hakkimda",
+		href: "/#hakkimda",
 	},
 	{
 		label: "Projeler",
-		href: "#calismalarim",
+		href: "/#calismalarim",
 	},
 	{
 		label: "Blog",

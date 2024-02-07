@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-	title: 'Muhammed Karamuk - "Kabuğun olduğu yerde gidilecek bir yol vardır"',
+	title: 'Muhammed Karamuk - "Where there is a shell, there is a"',
 	description:
-		"Muhammed Karamuk'un kişisel web sayfasına hoş geldiniz! Ben kimim? Makalelerime göz atabilir veya açık kaynak çalışmalarımı inceleyebilirsiniz!",
+		"Ben kimim? Açık kaynak topluluğuna bağlı, örenmeyi ve öğretmeyi seven bir yazılım geliştiricisiyim. Makalelerime göz atabilir veya açık kaynak çalışmalarımı inceleyebilirsiniz.",
 };
 
 interface RootLayoutProps {
